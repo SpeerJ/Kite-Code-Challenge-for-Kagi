@@ -33,7 +33,7 @@ class KiteApiClient {
     return CategoryModel.fromJson(json);
   }
 
-  /// Returns custom feed Categories off of
+  /// Returns custom feed categories
   Future<Iterable<CustomFeedCategory>> getCustomFeeds() async {
     final json = await _getResource(_githubUCBaseUrl, "/kagisearch/kite-public/refs/heads/main/kite_feeds.json");
 
@@ -41,6 +41,7 @@ class KiteApiClient {
         .map((entry) => CustomFeedCategory.fromJson(entry.key.toLowerCase(), entry.value));
   }
 
+  /// This method gets all feeds including built_in and custom feeds from kagi_public
   Future<List<FeedCategory>> getAllFeeds() async {
     return [...FeedCategory.built_in, ...(await getCustomFeeds()).toList()];
   }
