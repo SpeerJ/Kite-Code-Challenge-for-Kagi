@@ -57,7 +57,8 @@ NewsCluster _$NewsClusterFromJson(Map<String, dynamic> json) => NewsCluster(
       leagueStandings: json['league_standings'] as String,
       diyTips: json['diy_tips'] as String,
       designPrinciples: json['design_principles'] as String,
-      userExperienceImpact: json['user_experience_impact'] as String,
+      userExperienceImpact:
+          EmptyStringFix.toStringList(json['user_experience_impact']),
       gameplayMechanics: (json['gameplay_mechanics'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),

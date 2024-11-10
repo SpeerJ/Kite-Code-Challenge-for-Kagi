@@ -84,7 +84,8 @@ class NewsCluster {
 
   final String designPrinciples;
 
-  final String userExperienceImpact;
+  @JsonKey(fromJson: EmptyStringFix.toStringList)
+  final List<String> userExperienceImpact;
 
   final List<String> gameplayMechanics;
 
@@ -96,7 +97,7 @@ class NewsCluster {
 
   final List<Domain> domains;
 
-  NewsCluster({
+  const NewsCluster({
     required this.clusterNumber,
     required this.uniqueDomains,
     required this.numberOfTitles,
