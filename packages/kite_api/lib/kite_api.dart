@@ -6,7 +6,7 @@ import 'package:meta/meta.dart';
 
 import 'package:http/http.dart' as http;
 
-import 'models/category_model.dart';
+import 'models/feed.dart';
 import 'feed_category.dart';
 
 /// Error code returned
@@ -27,10 +27,10 @@ class KiteApiClient {
   factory KiteApiClient() => KiteApiClient.withClient(http.Client());
 
   /// Returns the requested news category
-  Future<CategoryModel> getCategory(FeedCategory feed) async {
+  Future<Feed> getCategory(FeedCategory feed) async {
     final json = await _getResource(_baseUrl, "/${feed.name}.json");
 
-    return CategoryModel.fromJson(json);
+    return Feed.fromJson(json);
   }
 
   /// Returns custom feed categories
@@ -38,7 +38,7 @@ class KiteApiClient {
     final json = await _getResource(_githubUCBaseUrl, "/kagisearch/kite-public/refs/heads/main/kite_feeds.json");
 
     return json.entries
-        .map((entry) => CustomFeedCategory.fromJson(entry.key.toLowerCase(), entry.value));
+        .map((entry) => CustomFeedCategory.fromJson({ entry.key.toLowerCase(): entry.value }));
   }
 
   /// This method gets all feeds including built_in and custom feeds from kagi_public

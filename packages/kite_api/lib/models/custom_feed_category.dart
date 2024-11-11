@@ -11,10 +11,10 @@ class CustomFeedCategory extends FeedCategory{
 
   const CustomFeedCategory(super.name, this.feeds);
 
-  factory CustomFeedCategory.fromJson(String name, Map<String, dynamic> json) {
+  factory CustomFeedCategory.fromJson(Map<String, dynamic> json) {
     return CustomFeedCategory(
-      name,
-      List<String>.from(json['feeds'] as List),
+      json.keys.first,
+      List<String>.from(json.values.first['feeds'] as List),
     );
   }
 
