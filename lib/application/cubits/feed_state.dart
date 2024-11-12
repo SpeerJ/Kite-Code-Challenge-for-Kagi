@@ -12,19 +12,24 @@ class FeedState extends Equatable {
   final Feed? feed;
   final Status status;
   final Exception? error;
+  final List<FeedCategory> categories;
 
   const FeedState({
     this.feedCategory = FeedCategory.world,
+    this.categories = FeedCategory.built_in,
     this.feed,
     this.error,
     this.status = Status.initial});
 
-  FeedState copyWith({FeedCategory? feedCategory,
+  FeedState copyWith({
+    FeedCategory? feedCategory,
+    List<FeedCategory>? categories,
     Feed? feed,
     Exception? error,
     Status? status}) {
     return FeedState(
         feedCategory: feedCategory ?? this.feedCategory,
+        categories: categories ?? this.categories,
         feed: feed ?? this.feed,
         error: error,
         status: status ?? this.status);
