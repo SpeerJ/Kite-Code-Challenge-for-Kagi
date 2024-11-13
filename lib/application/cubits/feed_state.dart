@@ -11,12 +11,13 @@ class FeedState extends Equatable {
   final FeedCategory feedCategory;
   final Feed? feed;
   final Status status;
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final Exception? error;
   final List<FeedCategory> categories;
 
   const FeedState({
-    this.feedCategory = FeedCategory.world,
-    this.categories = FeedCategory.built_in,
+    this.feedCategory = FeedCategory.defaultCategory,
+    this.categories = FeedCategory.builtIn,
     this.feed,
     this.error,
     this.status = Status.initial});
@@ -41,5 +42,5 @@ class FeedState extends Equatable {
       _$FeedStateFromJson(json);
 
   @override
-  List<Object?> get props => [feedCategory.name, feed?.timestamp];
+  List<Object?> get props => [status,feedCategory.name, feed?.timestamp];
 }

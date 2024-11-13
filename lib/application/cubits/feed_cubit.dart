@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:kite_api/feed_category.dart';
 import 'package:kite_api/kite_api.dart';
 import 'package:kite_app/application/cubits/status.dart';
@@ -11,6 +13,7 @@ class FeedCubit extends HydratedCubit<FeedState>{
 
   FeedCubit(this._apiClient) : super(const FeedState()) {
     fetchFeedCategories();
+    fetchFeed(state.feedCategory); // Fetch the default or the last used
   }
 
   Future<void> fetchFeed(FeedCategory category) async {
@@ -20,7 +23,7 @@ class FeedCubit extends HydratedCubit<FeedState>{
       final feed = await _apiClient.getCategory(category);
 
       emit(state.copyWith(status: Status.success, feedCategory: category, feed: feed));
-    } on NotFoundException catch () {
+    } on NotFoundException catch (_) {
       emit(state.copyWith(status: Status.empty, feedCategory: category, feed: null));
     }
     on ApiException catch (e) {
@@ -31,10 +34,14 @@ class FeedCubit extends HydratedCubit<FeedState>{
   Future<void> fetchFeedCategories() async {
     emit(state.copyWith(status: Status.loading));
 
+    log('Fetching feed categories');
+
     try {
       final feedCategories = await _apiClient.getCustomFeeds();
-      emit(state.copyWith(status: Status.empty, categories: feedCategories.toList()));
+      emit(state.copyWith(categories: feedCategories.toList()));
+      log('Successfully fetched feed categories');
     } on ApiException catch (e) {
+      log('Failed to fetch feed categories');
       emit(state.copyWith(status: Status.failure, error: e));
     }
   }

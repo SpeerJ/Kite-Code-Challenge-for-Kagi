@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kite_api/kite_api.dart';
 import 'package:kite_app/application/cubits/feed_cubit.dart';
+import 'package:kite_app/presentation/enums/kagi_colors.dart';
 import 'package:kite_app/presentation/pages/category_feed_page.dart';
+import 'package:kite_app/presentation/widgets/base_view.dart';
 
 class App extends StatelessWidget {
   final KiteApiClient _apiClient;
@@ -22,6 +24,7 @@ class App extends StatelessWidget {
 class AppView extends StatelessWidget {
 
   const AppView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,10 +45,14 @@ class AppView extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: KagiColors.yellow.color),
         useMaterial3: true,
       ),
-      home: const CategoryFeedPage(),
+      builder: (context, child) => BaseView(child: child ?? Container()),
+      initialRoute: CategoryFeedPage.route,
+      routes: {
+        CategoryFeedPage.route: (context) => const CategoryFeedPage(),
+      },
     );
   }
 }

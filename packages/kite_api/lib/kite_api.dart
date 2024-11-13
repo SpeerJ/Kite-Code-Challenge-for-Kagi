@@ -43,7 +43,7 @@ class KiteApiClient {
 
   /// This method gets all feeds including built_in and custom feeds from kagi_public
   Future<List<FeedCategory>> getAllFeeds() async {
-    return [...FeedCategory.built_in, ...(await getCustomFeeds()).toList()];
+    return [...FeedCategory.builtIn, ...(await getCustomFeeds()).toList()];
   }
 
   Future<void> dispose() async {

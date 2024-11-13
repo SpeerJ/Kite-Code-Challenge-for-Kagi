@@ -7,7 +7,8 @@ class FeedCategory {
   static const world = FeedCategory('world');
   static const science = FeedCategory('science');
   static const tech = FeedCategory('tech');
-  static const built_in = [world, science, tech];
+  static const builtIn = [world, science, tech];
+  static const defaultCategory = world;
 
   final String name;
 

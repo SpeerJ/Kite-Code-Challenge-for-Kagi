@@ -61,7 +61,7 @@ void main() {
       final feeds = await kiteApi.getAllFeeds();
 
       // Sanity check that it has more categories than those built in
-      expect(feeds.length, greaterThan(FeedCategory.built_in.length));
+      expect(feeds.length, greaterThan(FeedCategory.builtIn.length));
 
       await Future.forEach(feeds, (feed) async {
         try {

@@ -12,6 +12,8 @@ class Feed {
   final int read;
   final List<NewsCluster> clusters;
 
+  DateTime get date => DateTime.fromMicrosecondsSinceEpoch(timestamp * 1000000);
+
   const Feed({
     required this.category,
     required this.timestamp,

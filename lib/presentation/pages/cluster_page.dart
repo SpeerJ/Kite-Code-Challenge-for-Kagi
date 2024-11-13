@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:kite_api/models/news_cluster.dart';
 
 class ClusterPage extends StatelessWidget {
-  const ClusterPage({super.key});
+  static const String route = '/cluster-page';
+  final NewsCluster cluster;
+  final int index;
+
+  const ClusterPage({super.key, required this.cluster, required this.index});
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Center(child: Column(
+      children: [
+        Text(cluster.title),
+        Text(cluster.category),
+      ],
+    ),);
   }
   
 }
