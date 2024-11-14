@@ -58,6 +58,6 @@ class KiteApiClient {
 
     if (response.statusCode != 200) throw ApiException();
 
-    return jsonDecode(response.body) as Map<String, dynamic>;
+    return jsonDecode(utf8.decode(latin1.encode(response.body))) as Map<String, dynamic>;
   }
 }

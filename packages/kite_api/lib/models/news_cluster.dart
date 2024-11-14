@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kite_api/models/article.dart';
 import 'package:kite_api/models/text_with_sources.dart';
+import 'package:collection/collection.dart';
 
 import 'domain.dart';
 import 'empty_string_fix.dart';
@@ -96,6 +97,28 @@ class NewsCluster {
   final List<Article> articles;
 
   final List<Domain> domains;
+
+  List<String> get images => articles
+      .map((article) => article.image)
+      .toList()
+      .where((x) => x.isNotEmpty)
+      .toList();
+
+  /// I'm not sure what the highlights are supposed to be. Just guessing here
+  // todo: switch to regexs like in
+  List<Map<String, String>> get highlights =>
+      talkingPoints.map((x) {
+      final split = x.split(':');
+      return {'name': split[0], 'description': split[1]};
+    }).toList();
+
+  String? get quotePhoto {
+    final article = articles.firstWhereOrNull((x) => x.link == quoteSourceUrl);
+    final image = article?.image;
+    if (image == "") return null;
+
+    return image;
+  }
 
   const NewsCluster({
     required this.clusterNumber,

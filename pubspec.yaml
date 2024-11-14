@@ -45,6 +45,7 @@ dependencies:
   path_provider: ^2.1.5
   intl: ^0.19.0
   flutter_svg: ^2.0.14
+  dotted_line: ^3.2.3
 
 dev_dependencies:
   flutter_test:

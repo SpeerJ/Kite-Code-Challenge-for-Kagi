@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kite_api/models/source.dart';
 
 part 'article.g.dart';
 
@@ -18,6 +19,9 @@ class Article {
       required this.domain,
       required this.date,
       required this.image});
+
+  // Article or domain should include a name attribute for the website
+  Source toSource() => Source(domain, link);
 
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);

@@ -1,9 +1,11 @@
 import 'dart:ui';
 
 enum KagiColors {
+  sourceBlue(Color.fromARGB(255, 0, 64, 229)),
   blue(Color.fromARGB(255, 66, 102, 197,)),
   yellow(Color.fromARGB(255, 255, 179, 25)),
-  fuschia(Color.fromARGB(255, 206, 58, 182)),
+  fuchsia(Color.fromARGB(255, 206, 58, 182)),
+  lightGrayBackground(Color.fromARGB(255, 239, 239, 239)),
   lightGray(Color.fromARGB(255, 209, 212, 219)),
   gray(Color.fromARGB(255, 98, 98, 98)),
   red(Color.fromARGB(255, 220, 38, 38)),

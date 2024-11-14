@@ -8,15 +8,15 @@ plugins {
 android {
     namespace = "com.kagi.kite.kite_app"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "25.1.8937393" // There is an issue with the latest version of PATH_PROVIDER that requires some specific versions
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_17 // For Path Provider
         targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = 17
+        jvmTarget = 17 // For Path Provider
     }
 
     defaultConfig {

@@ -29,6 +29,7 @@ class ClusterView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             ClusterHeadline(cluster: cluster, index: index, hideSocialMedia: hideSocialMedia,),
+            Container(height: 15),
             Text(
               cluster.title,
               style: const TextStyle(fontSize: 22, fontFamily: 'Arial'),
