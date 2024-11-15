@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kite_app/presentation/utils/formatting.dart';
 import 'package:kite_app/presentation/widgets/positioned_menu_widget.dart';
 
 import '../../application/cubits/feed_cubit.dart';
 import '../../application/cubits/feed_state.dart';
 import 'black_menu_bar.dart';
-import 'category_switch.dart';
 
 class BaseView extends StatelessWidget {
 

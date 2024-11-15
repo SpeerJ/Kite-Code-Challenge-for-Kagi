@@ -19,15 +19,13 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => ShowingSettingsCubit(false)),
         BlocProvider(create: (_) => FeedCubit(_apiClient))
-        ],
+      ],
       child: const AppView(),
     );
   }
-
 }
 
 class AppView extends StatelessWidget {
-
   const AppView({super.key});
 
   @override
@@ -35,8 +33,14 @@ class AppView extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        textTheme: TextTheme(),
-        colorScheme: ColorScheme.fromSeed(seedColor: KagiColors.yellow.color).copyWith(surface: Colors.white),
+        textTheme: TextTheme(
+            headlineLarge: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w700,
+                color: KagiColors.darkGray.color),
+            labelSmall: const TextStyle(fontSize: 14)),
+        colorScheme: ColorScheme.fromSeed(seedColor: KagiColors.yellow.color)
+            .copyWith(surface: Colors.white),
         useMaterial3: true,
       ),
       builder: (context, child) => BaseView(child: child ?? Container()),

@@ -38,6 +38,7 @@ class ClusterHeadlineWidget extends StatelessWidget {
       Text('${cluster.numberOfTitles} Sources',
           style: TextStyle(color: KagiColors.gray.color, fontSize: 12)),
       Expanded(child: Container()),
+      if (!hideSocialMedia) ...[
       SvgPicture.asset(
         'assets/icons/Share.svg',
         height: 19,
@@ -45,7 +46,7 @@ class ClusterHeadlineWidget extends StatelessWidget {
       ),
       Container(width: 11,),
       Icon(Icons.check_circle, color: KagiColors.lightGray.color, size: 19,)
-    ]);
+    ]]);
   }
 
 }

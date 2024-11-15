@@ -41,7 +41,7 @@ class TimelineWidget extends StatelessWidget {
                         border: Border(left: BorderSide(color: KagiColors.timelineBlue.color))
                       ),
                       child: Column(children: [
-                        Text(event?.group(2) ?? '', style: TextStyle(fontSize: 14),)]
+                        Text(event?.group(2) ?? '', style: const TextStyle(fontSize: 14),)]
                       ))
                 ],
               );

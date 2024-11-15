@@ -9,6 +9,7 @@ enum KagiColors {
   lightGrayBackground(Color.fromARGB(255, 242, 246, 255)),
   alternativeLightGrayBackground(Color.fromARGB(255, 245, 245, 245)),
   lightGray(Color.fromARGB(255, 209, 212, 219)),
+  mediumGray(Color.fromARGB(255, 121, 121, 121)),
   gray(Color.fromARGB(255, 98, 98, 98)),
   darkGray(Color.fromARGB(255, 56, 56, 56)),
   red(Color.fromARGB(255, 220, 38, 38)),

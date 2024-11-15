@@ -11,25 +11,35 @@ class ClusterSummaryWidget extends StatelessWidget {
   final bool hideSocialMedia;
   final DateTime dateTime;
 
-  const ClusterSummaryWidget({super.key, required this.cluster, required this.index, this.hideSocialMedia = false, required this.dateTime});
+  const ClusterSummaryWidget(
+      {super.key,
+      required this.cluster,
+      required this.index,
+      this.hideSocialMedia = false,
+      required this.dateTime});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(
-          PageRouteBuilder(
-              pageBuilder: (_, __, ___) => ClusterPage(cluster: cluster, index: index, dateTime: dateTime,),
-              transitionDuration: const Duration(seconds: 1),
-              transitionsBuilder: (_, a, __, c) => FadeTransition(opacity: a, child: c),
-          )
-        );
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => ClusterPage(
+            cluster: cluster,
+            index: index,
+            dateTime: dateTime,
+          ),
+          settings: const RouteSettings(name: ''),
+        ));
       },
       child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ClusterHeadlineWidget(cluster: cluster, index: index, hideSocialMedia: hideSocialMedia,),
+            ClusterHeadlineWidget(
+              cluster: cluster,
+              index: index,
+              hideSocialMedia: hideSocialMedia,
+            ),
             Container(height: 15),
             Text(
               cluster.title,

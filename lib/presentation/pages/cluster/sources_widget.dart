@@ -28,8 +28,6 @@ class SourcesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     if (articles.isEmpty) return Container();
 
-    print("articles.length: ${articles.length}");
-
     return BlocProvider(
         create: (_) => ShowingAllSourcesCubit(),
         child: BlocBuilder<ShowingAllSourcesCubit, bool>(
@@ -42,7 +40,7 @@ class SourcesWidget extends StatelessWidget {
                 InkWell(
                     onTap: () => context.read<ShowingAllSourcesCubit>().toggle(),
                     child: Row(children: [
-                      Text(showingAll ? 'Hide' : 'Show', style: const TextStyle(fontSize: 14)),
+                      Text(showingAll ? 'Hide' : 'Show', style: Theme.of(context).textTheme.labelSmall),
                       const SizedBox(width: 4),
                       SvgPicture.asset(showingAll ? chevronUp : chevronDown,
                           width: 12)
