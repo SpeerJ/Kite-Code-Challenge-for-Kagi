@@ -8,6 +8,7 @@ import 'package:kite_app/presentation/utils/formatting.dart';
 
 import '../../../application/cubits/feed_cubit.dart';
 import '../../../application/cubits/feed_state.dart';
+import '../../../application/cubits/showing_settings_cubit.dart';
 import '../../enums/kagi_colors.dart';
 
 /// Shows all of the clusters(stories) of a particular category(world, sci, tech, etc..)
@@ -36,10 +37,13 @@ class CategoryFeedView extends StatelessWidget {
                         Image.asset('assets/images/kite logo.png'),
                         Image.asset('assets/images/kite text.png'),
                         Expanded(child: Container()),
-                        SvgPicture.asset(
-                          'assets/icons/Settings-cog.svg',
-                          height: 24,
-                        )
+                        GestureDetector(
+                            onTap: () =>
+                                context.read<ShowingSettingsCubit>().toggle(),
+                            child: SvgPicture.asset(
+                              'assets/icons/Settings-cog.svg',
+                              height: 24,
+                            ))
                       ],
                     )),
                 Container(
