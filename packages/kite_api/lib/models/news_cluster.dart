@@ -1,7 +1,7 @@
+import 'package:collection/collection.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kite_api/models/article.dart';
 import 'package:kite_api/models/text_with_sources.dart';
-import 'package:collection/collection.dart';
 
 import 'domain.dart';
 import 'empty_string_fix.dart';

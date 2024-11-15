@@ -1,4 +1,3 @@
-import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:kite_api/models/feed.dart';
 import 'package:kite_app/presentation/pages/category_feed/cluster_view.dart';

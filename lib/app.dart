@@ -6,6 +6,8 @@ import 'package:kite_app/presentation/enums/kagi_colors.dart';
 import 'package:kite_app/presentation/pages/category_feed_page.dart';
 import 'package:kite_app/presentation/widgets/base_view.dart';
 
+import 'application/cubits/showing_settings_cubit.dart';
+
 class App extends StatelessWidget {
   final KiteApiClient _apiClient;
 
@@ -13,8 +15,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => FeedCubit(_apiClient),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => ShowingSettingsCubit(false)),
+        BlocProvider(create: (_) => FeedCubit(_apiClient))
+        ],
       child: const AppView(),
     );
   }
@@ -30,21 +35,7 @@ class AppView extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
+        textTheme: TextTheme(),
         colorScheme: ColorScheme.fromSeed(seedColor: KagiColors.yellow.color),
         useMaterial3: true,
       ),

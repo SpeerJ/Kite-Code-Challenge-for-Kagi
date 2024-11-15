@@ -10,6 +10,7 @@ enum KagiColors {
   alternativeLightGrayBackground(Color.fromARGB(255, 245, 245, 245)),
   lightGray(Color.fromARGB(255, 209, 212, 219)),
   gray(Color.fromARGB(255, 98, 98, 98)),
+  darkGray(Color.fromARGB(255, 56, 56, 56)),
   red(Color.fromARGB(255, 220, 38, 38)),
   // Colors introduced in frame 1630 of the design doc
   orange(Color.fromARGB(255, 185, 101, 28)),

@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:kite_api/feed_category.dart';
+import 'package:kite_api/kite_api.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
-import 'package:kite_api/kite_api.dart';
 
 class CategoryClient extends Mock implements http.Client {}
 class CategoryResponse extends Mock implements http.Response {}

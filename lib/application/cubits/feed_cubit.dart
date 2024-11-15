@@ -1,11 +1,11 @@
 import 'dart:developer';
 
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:kite_api/feed_category.dart';
 import 'package:kite_api/kite_api.dart';
 import 'package:kite_app/application/cubits/status.dart';
 
 import 'feed_state.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 
 class FeedCubit extends HydratedCubit<FeedState>{

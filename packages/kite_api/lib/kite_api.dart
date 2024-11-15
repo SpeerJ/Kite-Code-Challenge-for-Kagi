@@ -1,13 +1,13 @@
 library kite_api;
 
 import 'dart:convert';
+
+import 'package:http/http.dart' as http;
 import 'package:kite_api/models/custom_feed_category.dart';
 import 'package:meta/meta.dart';
 
-import 'package:http/http.dart' as http;
-
-import 'models/feed.dart';
 import 'feed_category.dart';
+import 'models/feed.dart';
 
 /// Error code returned
 class ApiException implements Exception {}

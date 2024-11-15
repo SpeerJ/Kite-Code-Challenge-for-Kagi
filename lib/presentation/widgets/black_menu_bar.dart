@@ -1,32 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kite_app/presentation/enums/kagi_colors.dart';
 
-class PageWithBlackBar extends StatelessWidget {
-  final Widget child;
+import '../../application/cubits/showing_settings_cubit.dart';
+
+class BlackMenuBar extends StatelessWidget {
   final double barHeight;
 
-  const PageWithBlackBar({
-    Key? key,
-    required this.child,
-    this.barHeight = 30.0, // Default height for the black bar
-  }) : super(key: key);
+  const BlackMenuBar({
+    super.key,
+    this.barHeight = 45.0,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          // Black bar at the top
-          Container(
+    return BlocBuilder<ShowingSettingsCubit, bool>(
+        builder: (context, showingSettings) {
+      return GestureDetector(
+          onTap: () => context.read<ShowingSettingsCubit>().toggle(),
+          child: Container(
             width: double.infinity,
             height: barHeight,
-            color: Colors.black,
-            // Add padding for status bar
-            padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-          ),
-          // Rest of the content
-          Expanded(child: child),
-        ],
-      ),
-    );
+            color: KagiColors.darkGray.color
+          ));
+    });
   }
 }

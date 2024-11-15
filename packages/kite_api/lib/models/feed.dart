@@ -1,5 +1,5 @@
-import 'package:kite_api/models/news_cluster.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kite_api/models/news_cluster.dart';
 
 part 'feed.g.dart';
 

@@ -42,7 +42,7 @@ class SourcesWidget extends StatelessWidget {
                 InkWell(
                     onTap: () => context.read<ShowingAllSourcesCubit>().toggle(),
                     child: Row(children: [
-                      Text(showingAll ? 'Hide' : 'Show', style: TextStyle(fontSize: 14)),
+                      Text(showingAll ? 'Hide' : 'Show', style: const TextStyle(fontSize: 14)),
                       const SizedBox(width: 4),
                       SvgPicture.asset(showingAll ? chevronUp : chevronDown,
                           width: 12)
