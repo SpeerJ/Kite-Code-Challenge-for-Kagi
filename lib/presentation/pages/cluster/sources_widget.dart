@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:kite_api/models/article.dart';
 
-import '../views/source_widget.dart';
+import '../widgets/source_widget.dart';
 
 class ShowingAllSourcesCubit extends Cubit<bool> {
   ShowingAllSourcesCubit() : super(false);

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kite_api/models/news_cluster.dart';
-import 'package:kite_app/presentation/pages/views/cluster_headline.dart';
 
 import '../cluster_page.dart';
+import '../widgets/cluster_headline.dart';
 
 class ClusterView extends StatelessWidget {
   final NewsCluster cluster;

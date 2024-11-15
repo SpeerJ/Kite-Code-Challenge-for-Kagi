@@ -29,7 +29,7 @@ class InternationalReactions extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 6),
               child: Container(
                 decoration: BoxDecoration(
-                  color: KagiColors.lightGrayBackground.color,
+                  color: KagiColors.alternativeLightGrayBackground.color,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 padding: const EdgeInsets.all(16),

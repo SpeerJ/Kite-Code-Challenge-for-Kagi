@@ -70,10 +70,10 @@ class ClusterPage extends StatelessWidget {
                   itemBuilder: (context, i) => Column(children: [
                         Row(
                           children: [
-                            Stack(children: [
-                              Icon(Icons.circle, color: Colors.grey[300]),
-                              Text(i.toString())
-                            ]),
+                            CircleAvatar(
+                                radius: 13,
+                                backgroundColor: KagiColors.yellow.color,
+                                child: Text(index.toString())),
                             Container(
                               width: 11,
                             ),
