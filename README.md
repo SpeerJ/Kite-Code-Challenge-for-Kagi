@@ -1,16 +1,17 @@
-# kite_app
+# Kite
 
-News-reading app
+A News reading app
 
-## Getting Started
+[Kagi_features.webm](https://github.com/user-attachments/assets/7c38f1c8-65e0-4f2f-a422-8596f4dca259)
 
-This project is a starting point for a Flutter application.
+Take a look through World, Science, and Tech news. 
+See photos, quotes, insights, perspectives and more.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+
+To install this you need to copy the APK to your phone and install.
+
+
+
