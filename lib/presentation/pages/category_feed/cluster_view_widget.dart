@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:kite_api/models/news_cluster.dart';
 
 import '../cluster_page.dart';
-import '../widgets/cluster_headline.dart';
+import '../widgets/cluster_headline_widget.dart';
 
-class ClusterView extends StatelessWidget {
+/// Individual Cluster, a specific new story and it's articles.
+class ClusterSummaryWidget extends StatelessWidget {
   final NewsCluster cluster;
   final int index;
   final bool hideSocialMedia;
   final DateTime dateTime;
 
-  const ClusterView({super.key, required this.cluster, required this.index, this.hideSocialMedia = false, required this.dateTime});
+  const ClusterSummaryWidget({super.key, required this.cluster, required this.index, this.hideSocialMedia = false, required this.dateTime});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class ClusterView extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ClusterHeadline(cluster: cluster, index: index, hideSocialMedia: hideSocialMedia,),
+            ClusterHeadlineWidget(cluster: cluster, index: index, hideSocialMedia: hideSocialMedia,),
             Container(height: 15),
             Text(
               cluster.title,

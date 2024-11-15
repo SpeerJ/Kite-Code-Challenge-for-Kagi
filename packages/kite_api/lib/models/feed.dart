@@ -6,6 +6,7 @@ part 'feed.g.dart';
 @JsonSerializable(
   fieldRename: FieldRename.snake,
 )
+/// A group of news stories centered around a particular category(world, sci, tech, etc..)
 class Feed {
   final String category;
   final int timestamp;

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:kite_app/presentation/enums/kagi_colors.dart';
 
-class Timeline extends StatelessWidget {
+class TimelineWidget extends StatelessWidget {
   final List<String> timeline;
   final double paddingBottom;
 
-  const Timeline(
+  const TimelineWidget(
       {super.key, required this.timeline, required this.paddingBottom});
 
   @override

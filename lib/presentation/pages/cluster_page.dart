@@ -2,12 +2,12 @@ import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:kite_api/models/news_cluster.dart';
 import 'package:kite_app/presentation/enums/kagi_colors.dart';
-import 'package:kite_app/presentation/pages/category_feed/cluster_view.dart';
-import 'package:kite_app/presentation/pages/cluster/cluster_writing.dart';
-import 'package:kite_app/presentation/pages/cluster/image_switcher.dart';
-import 'package:kite_app/presentation/pages/cluster/international_reactions.dart';
-import 'package:kite_app/presentation/pages/cluster/perspectives.dart';
-import 'package:kite_app/presentation/pages/cluster/timeline.dart';
+import 'package:kite_app/presentation/pages/category_feed/cluster_view_widget.dart';
+import 'package:kite_app/presentation/pages/cluster/cluster_writing_widget.dart';
+import 'package:kite_app/presentation/pages/cluster/image_switcher_widget.dart';
+import 'package:kite_app/presentation/pages/cluster/international_reactions_widget.dart';
+import 'package:kite_app/presentation/pages/cluster/perspectives_widget.dart';
+import 'package:kite_app/presentation/pages/cluster/timeline_widget.dart';
 
 import '../utils/formatting.dart';
 import 'cluster/sources_widget.dart';
@@ -43,7 +43,7 @@ class ClusterPage extends StatelessWidget {
                   Container(height: 11)
                 ],
               ),
-              ClusterView(
+              ClusterSummaryWidget(
                 cluster: cluster,
                 index: index,
                 hideSocialMedia: true,
@@ -125,31 +125,31 @@ class ClusterPage extends StatelessWidget {
               }),
 
               /// Perspective
-              Perspectives(perspectives: cluster.perspectives, paddingBottom: 48,),
+              PerspectivesWidget(perspectives: cluster.perspectives, paddingBottom: 48,),
 
               /// Geopolitical Context
-              ClusterWriting(
+              ClusterWritingWidget(
                   title: 'Geopolitical Context',
                   text: cluster.geopoliticalContext,
                   paddingBottom: 48),
 
               /// Historical Background
-              ClusterWriting(
+              ClusterWritingWidget(
                   title: 'Historical Background',
                   text: cluster.historicalBackground,
                   paddingBottom: 48),
 
               /// International reaction
-              InternationalReactions(internationalReactions: cluster.internationalReactions, paddingBottom: 48,),
+              InternationalReactionsWidget(internationalReactions: cluster.internationalReactions, paddingBottom: 48,),
 
               /// Economic Implications
-              ClusterWriting(
+              ClusterWritingWidget(
                   title: 'Economic Implications',
                   text: cluster.economicImplications,
                   paddingBottom: 48),
 
               /// Humanitarian Impact
-              ClusterWriting(
+              ClusterWritingWidget(
                   title: 'Humanitarian Impact',
                   text: cluster.humanitarianImpact,
                   paddingBottom: 48),
@@ -181,12 +181,12 @@ class ClusterPage extends StatelessWidget {
               }),
 
               /// Timeline of Events
-              Timeline(
+              TimelineWidget(
                   timeline: cluster.timeline,
                   paddingBottom: 48
               ),
               /// Future Outlook
-              ClusterWriting(
+              ClusterWritingWidget(
                   title: 'Future Outlook',
                   text: cluster.futureOutlook,
                   paddingBottom: 48),

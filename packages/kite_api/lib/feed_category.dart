@@ -8,6 +8,7 @@ class FeedCategory implements Equatable {
   static const world = FeedCategory('world');
   static const science = FeedCategory('science');
   static const tech = FeedCategory('tech');
+  /// Basic Categories that are always present
   static const builtIn = [world, science, tech];
   static const defaultCategory = world;
 

@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 
 import '../../enums/kagi_colors.dart';
 
-class InternationalReactions extends StatelessWidget {
+class InternationalReactionsWidget extends StatelessWidget {
   final List<String> internationalReactions;
   final double? paddingBottom;
 
-  const InternationalReactions({super.key, required this.internationalReactions, this.paddingBottom});
+  const InternationalReactionsWidget({super.key, required this.internationalReactions, this.paddingBottom});
 
   @override
   Widget build(BuildContext context) {

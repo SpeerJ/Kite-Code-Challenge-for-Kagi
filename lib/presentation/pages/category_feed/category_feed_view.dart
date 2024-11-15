@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:kite_api/feed_category.dart';
 import 'package:kite_api/models/feed.dart';
-import 'package:kite_app/presentation/pages/category_feed/cluster_view.dart';
+import 'package:kite_app/presentation/pages/category_feed/cluster_view_widget.dart';
 import 'package:kite_app/presentation/utils/formatting.dart';
 
 import '../../../application/cubits/feed_cubit.dart';
 import '../../../application/cubits/feed_state.dart';
 import '../../enums/kagi_colors.dart';
 
+/// Shows all of the clusters(stories) of a particular category(world, sci, tech, etc..)
 class CategoryFeedView extends StatelessWidget {
   final Feed feed;
 
@@ -47,11 +49,13 @@ class CategoryFeedView extends StatelessWidget {
                     child: BlocBuilder<FeedCubit, FeedState>(
                         builder: (context, state) => ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: context
-                                .read<FeedCubit>()
-                                .state
-                                .categories
-                                .length,
+                            itemCount: FeedCategory.builtIn.length,
+                            // To switch to using custom categories
+                            // context
+                            //     .read<FeedCubit>()
+                            //     .state
+                            //     .categories
+                            //     .length,
                             itemBuilder: (context, index) {
                               final category = context
                                   .read<FeedCubit>()
@@ -93,7 +97,7 @@ class CategoryFeedView extends StatelessWidget {
                             if (index == 0) {
                               return Text(Formatting.displayDate(feed.date));
                             }
-                            return ClusterView(
+                            return ClusterSummaryWidget(
                               cluster: feed.clusters[index - 1],
                               index: index,
                               dateTime: feed.date,

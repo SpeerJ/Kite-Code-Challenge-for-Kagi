@@ -7,7 +7,7 @@ import 'package:kite_app/application/cubits/status.dart';
 
 import 'feed_state.dart';
 
-
+/// Manages state of the selected feed category and the list of all categories
 class FeedCubit extends HydratedCubit<FeedState>{
   final KiteApiClient _apiClient;
 
@@ -17,6 +17,7 @@ class FeedCubit extends HydratedCubit<FeedState>{
 
   }
 
+  /// Update the feed with the latest stories from the selected category(world, science, tech, etc..)
   Future<void> fetchFeed(FeedCategory category) async {
     emit(state.copyWith(status: Status.loading));
 
@@ -32,13 +33,14 @@ class FeedCubit extends HydratedCubit<FeedState>{
     }
   }
 
+  /// Get all the custom feed categories and the basics such as World, Science, Tech
   Future<void> fetchFeedCategories() async {
     emit(state.copyWith(status: Status.loading));
     log('Fetching feed categories');
     try {
       final feedCategories = await _apiClient.getCustomFeeds();
-      emit(state.copyWith(categories: feedCategories.toList()));/**/
-      log('Successfully fetched feed categories');
+      emit(state.copyWith(categories: FeedCategory.builtIn + feedCategories.toList()));
+      log('Successfully fetched feed categories ${state.categories.length}');
     } on ApiException catch (e) {
       log('Failed to fetch feed categories');
       emit(state.copyWith(status: Status.failure, error: e));

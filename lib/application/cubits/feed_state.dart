@@ -41,6 +41,6 @@ class FeedState extends Equatable {
   static FeedState fromJson(Map<String, dynamic> json) =>
       _$FeedStateFromJson(json);
 
-  @override
-  List<Object?> get props => [status,feedCategory.name, feed?.timestamp];
+  @override // This class should really be divided by feed category and categories
+  List<Object?> get props => [status,feedCategory.name, categories.join(), feed?.timestamp];
 }

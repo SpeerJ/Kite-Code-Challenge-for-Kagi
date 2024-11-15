@@ -4,13 +4,13 @@ import 'package:kite_api/models/text_with_sources.dart';
 import '../../enums/kagi_colors.dart';
 import '../widgets/source_widget.dart';
 
-class Perspectives extends StatelessWidget {
+class PerspectivesWidget extends StatelessWidget {
   static final titleRegex = RegExp(r'(.*):(.*)');
 
   final List<TextWithSources> perspectives;
   final double? paddingBottom;
 
-  const Perspectives(
+  const PerspectivesWidget(
       {super.key, required this.perspectives, this.paddingBottom});
 
   @override

@@ -4,14 +4,14 @@ import 'package:kite_api/models/news_cluster.dart';
 
 import '../../enums/kagi_colors.dart';
 
-class ClusterHeadline extends StatelessWidget {
+class ClusterHeadlineWidget extends StatelessWidget {
   final NewsCluster cluster;
   final int index;
   final bool hideSocialMedia;
   Color get color =>
       KagiColors.categoryColors[index % KagiColors.categoryColors.length].color;
 
-  const ClusterHeadline({super.key, required this.cluster, required this.index, required this.hideSocialMedia});
+  const ClusterHeadlineWidget({super.key, required this.cluster, required this.index, required this.hideSocialMedia});
 
   @override
   Widget build(BuildContext context) {
