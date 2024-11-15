@@ -12,8 +12,9 @@ class FeedCubit extends HydratedCubit<FeedState>{
   final KiteApiClient _apiClient;
 
   FeedCubit(this._apiClient) : super(const FeedState()) {
-    fetchFeedCategories();
     fetchFeed(state.feedCategory); // Fetch the default or the last used
+    fetchFeedCategories();
+
   }
 
   Future<void> fetchFeed(FeedCategory category) async {
@@ -33,12 +34,10 @@ class FeedCubit extends HydratedCubit<FeedState>{
 
   Future<void> fetchFeedCategories() async {
     emit(state.copyWith(status: Status.loading));
-
     log('Fetching feed categories');
-
     try {
       final feedCategories = await _apiClient.getCustomFeeds();
-      emit(state.copyWith(categories: feedCategories.toList()));
+      emit(state.copyWith(categories: feedCategories.toList()));/**/
       log('Successfully fetched feed categories');
     } on ApiException catch (e) {
       log('Failed to fetch feed categories');

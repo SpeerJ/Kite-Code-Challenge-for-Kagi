@@ -36,7 +36,7 @@ class AppView extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         textTheme: TextTheme(),
-        colorScheme: ColorScheme.fromSeed(seedColor: KagiColors.yellow.color),
+        colorScheme: ColorScheme.fromSeed(seedColor: KagiColors.yellow.color).copyWith(surface: Colors.white),
         useMaterial3: true,
       ),
       builder: (context, child) => BaseView(child: child ?? Container()),

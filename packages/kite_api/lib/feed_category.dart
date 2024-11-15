@@ -1,9 +1,10 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'feed_category.g.dart';
 
 @JsonSerializable()
-class FeedCategory {
+class FeedCategory implements Equatable {
   static const world = FeedCategory('world');
   static const science = FeedCategory('science');
   static const tech = FeedCategory('tech');
@@ -20,4 +21,10 @@ class FeedCategory {
   Map<String, dynamic> toJson() => _$FeedCategoryToJson(this);
 
   const FeedCategory(this.name);
+
+  @override
+  List<Object?> get props => [name];
+
+  @override
+  bool? get stringify => true;
 }

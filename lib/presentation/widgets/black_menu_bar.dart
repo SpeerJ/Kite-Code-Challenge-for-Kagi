@@ -9,7 +9,7 @@ class BlackMenuBar extends StatelessWidget {
 
   const BlackMenuBar({
     super.key,
-    this.barHeight = 45.0,
+    this.barHeight = 60.0,
   });
 
   @override

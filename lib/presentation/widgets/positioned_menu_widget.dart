@@ -41,7 +41,7 @@ class PositionedMenuWidget extends StatelessWidget {
                   GestureDetector(
                       onTap: () =>
                           context.read<ShowingSettingsCubit>().toggle(),
-                      child: Container(height: 67, width: 330)),
+                      child: Container(color: Colors.white, height: 67, width: 330)),
                   Expanded(
                       child: ListView.separated(
                     itemCount: dummyMenuItems.length + 1,
