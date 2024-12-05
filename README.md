@@ -1,3 +1,5 @@
+I wrote this as a code challenge for Kagi.
+
 # Kite
 
 A different kind of news reading app.
@@ -26,7 +28,7 @@ Some of the features:
 
 ### IOS
 
-IPA files available upon request.
+Testflight available upon request.
 
 
 
